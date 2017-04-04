@@ -67,8 +67,9 @@ public class TestStupidViews {
 
         viewGroup.draw();
         Scanner scanner = new Scanner(System.in);
-        boolean check = true;
-        while(check) {
+        boolean canExitProgram = false;
+        int counter = 0;
+        while(!canExitProgram) {
             System.out.println("\n" + "Please type button number, check Checker2 for exit: ");
             inputNumber = scanner.nextInt();
             switch (inputNumber) {
@@ -86,9 +87,11 @@ public class TestStupidViews {
                     break;
                 case 5:
                     checkBox2.performClick();
-                    check = false;
+                    canExitProgram = true;
                     break;
             }
+            counter++;
+            if(counter >= 10) canExitProgram = true;
             viewGroup.draw();
         }
     }
